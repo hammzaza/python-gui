@@ -58,12 +58,14 @@ class GUI(Frame):
         if size < maxlength:
             tkinter.messagebox.showerror("Error", "The size should be greater than the length of the words")
             return None
-        
+
         difficulty = self.entry3.get()
-        if difficulty != 'easy' or difficulty !='difficult':
+
+        if (difficulty != 'easy') and (difficulty !='difficult'):
             tkinter.messagebox.showerror("Error", "Please enter the correct difficulty")
             return None
-        self.easydifficulty(words)
+        if difficulty =='easy':
+            self.easydifficulty(words,maxlength)
         #errors handled^^
 
 
@@ -73,12 +75,14 @@ class GUI(Frame):
             if maxlength <= len(word):
                 maxlength = len(word)
         return maxlength
-    def easydifficulty(self,words):
-        print('hello')
-        for r in range(3):
-            for c in range(4):
-                tkinter.Label(root, text='R%s/C%s'%(r,c),
-                borderwidth=1 ).grid(row=r,column=c)
+    def easydifficulty(self,words,maxlength):
+        gridd = [[' ' for x in range(maxlength +1)] for y in range(maxlength+1)]
+        
+        # for i in range(0,maxlength+1):
+        #     for j in range(0,maxlength+1):
+        #         Label(text=gridd[i][j], width=3).grid(row=i+10,column=j+10)
+
+
 if __name__ == "__main__":
     root = Tk()
     app = GUI(master=root)

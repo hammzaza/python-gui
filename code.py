@@ -138,7 +138,6 @@ class GUI(Frame):
             label.grid(row=i+5,column=0)
 
 
-
 if __name__ == "__main__":
     root = Tk() #here i added the labels and the entries shown in the interface initially.
     app = GUI(master=root)
