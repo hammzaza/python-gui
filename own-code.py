@@ -159,7 +159,6 @@ class GUI(Frame):
                 #diagnal
                 randrow = self.getrandom(size - len(words[x]))
                 randcol = self.getrandom(size - len(words[x]))
-
                 if (self.checkfordiagnal(randrow, randcol, gridd, len(words[x]))):
                     gridd = self.saveworddiag(randrow, randcol, gridd, words[x],size)
                     x = x + 1
