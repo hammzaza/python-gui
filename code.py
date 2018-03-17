@@ -17,38 +17,41 @@ class GUI(Frame):
         self.master['pady'] = 10
         self.master['bg'] = '#cecece'
         self.master.title('Word Search Puzzle')
-        
+        #gui created ^
+
         self.label1 = Label(master,text="Enter the Words (put a '-' between every word) ")
-        #self.label1.place(x=10,y=10,width=250,height=20)
+        
         self.label1.grid(column=0,sticky=W)
         
         self.entry1 = Entry(master)
-        #self.entry1.place(x=270,y=10,width=100,height=20)
-        self.entry1.grid(row=0,column=1)
+        
+        self.entry1.grid(row=0,column=1) #input to insert words like john-james etc which are to be displayed in the list.
         
         self.label2 = Label(master,text="Enter the Size :")
-        #self.label2.place(x=10,y=40,width=100,height=20)
+        
         self.label2.grid(row=1,column=0,sticky=W)
         
         self.entry2 = Entry(master)
-        #self.entry2.place(x=270,y=40,width=100,height=20)
+        
         self.entry2.grid(row=1,column=1)
         
         self.label3 = Label(master,text="Difficulty :(Easy or Difficult)")
-        #self.label3.place(x=10,y=70,width=100,height=20)
+
         self.label3.grid(row=2,column=0,sticky=W)
         
-        self.entry3 = Entry(master)
-        #self.entry3.place(x=270,y=70,width=100,height=20)
+        self.entry3 = Entry(master) #input for getting difficulty.
+
         self.entry3.grid(row=2,column=1)
         
         self.button = Button(master,text="Generate",command=self.getText)
-        #self.button.place(x=320,y=70,width=50,height=20)
+
         self.button.grid(row=3,columnspan=2)
 
-    def random_letter(self): #This function generates a random letter to fill the spots that doesn't contain the words.
-        r = randint(0,25) #This generates a random number between 0 and 25.
-        return chr(ord("A")+r) #I use that number to randomly choose a letter from the alphabet.
+    def random_letter(self):
+        r = randint(0,25)
+        return chr(ord("A")+r)
+
+    #generates random letters A-Z/
 
     def fit_possible(self,L,X,Y,l,dX,dY): #This function tests if the given word 'l' can fill the position starting from the index(X,Y)and going in the direction that implies dX,dY. 
         if X+dX*len(l) >len(L) or X+dX*len(l) < 0 or Y+dY*len(l) >len(L)or Y+dY*len(l) < 0 :            
@@ -61,9 +64,9 @@ class GUI(Frame):
     def getText(self):
         W = self.entry1.get() #this variable takes the string containg the words.
         D = self.entry3.get() #this variable takes the difficulty given.
-        val = self.entry2.get()
+        val = self.entry2.get() #this variable gets the size of the size.
         
-        if D == "" or W == "" or val == "":
+        if D == "" or W == "" or val == "": #if any field empty, throw error.
             tkinter.messagebox.showerror("Error","All inputs are required")
             return None
         
