@@ -80,9 +80,9 @@ class GUI(Frame):
             return None
         
         n = int(self.entry2.get()) #This variable takes the size of the grid.
-        W = W.split("-") #Transforrm the string into a list of words.
-        W = [word.upper()
-             for word in W]  #Making sure that the words are all upper case.
+        W = W.split("-") #Transform the string into a list of words.
+        W = [word.upper() for word in W]  #Making sure that the words are all upper case.
+
         L=[["*" for k in range(n)]
                    for i in range(n)] #inittiate with a blank grid.
         LL=[] #This list record the steps made by the program.
